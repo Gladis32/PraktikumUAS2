@@ -11,17 +11,21 @@ INSERT INTO Perusahaan VALUES
 
 SELECT * FROM Perusahaan;
 
-CREATE TABLE Perusahaan(
-id_p VARCHAR(10) PRIMARY KEY,
+CREATE TABLE Departemen(
+id_dept VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
-alamat VARCHAR(45)
+id_p VARCHAR(10) NOT NULL,
+manajer_nik VARCHAR(10) DEFAULT NULL
 );
 
-INSERT INTO Perusahaan VALUES
-('P01', 'Kantor Pusat', NULL),
-('P02', 'Cabang Bekasi', NULL);
-
 SELECT * FROM Perusahaan;
+
+INSERT INTO Departemen VALUES
+('D01', 'Produksi', 'P02', 'N01'),
+('D02', 'Marketing', 'P01', 'N03'),
+('D03', 'RnD', 'P02', NULL),
+('D04', 'Logistik', 'P02', NULL);
+SELECT * FROM Departemen;
 
 CREATE TABLE Karyawan (
 nik VARCHAR(10) PRIMARY KEY,
