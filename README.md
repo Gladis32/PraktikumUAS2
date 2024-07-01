@@ -148,3 +148,12 @@ LIMIT 1;
 ```
 
 ### 5. Menampilkan Nama Proyek yang Diikuti oleh Karyawan dengan Gaji Pokok Kurang dari 3 Juta
+
+```
+SELECT DISTINCT Project.nama
+FROM Project
+JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
+JOIN Karyawan ON Project_detail.nik = Karyawan.nik
+JOIN Gaji ON Karyawan.nik = Gaji.nik
+WHERE Gaji.gaji_pokok < 3000000;
+```
