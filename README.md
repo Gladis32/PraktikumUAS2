@@ -1,3 +1,4 @@
+```
 CREATE TABLE Perusahaan(
 id_p VARCHAR(10) PRIMARY KEY,
 nama VARCHAR(45) NOT NULL,
@@ -85,3 +86,4 @@ INSERT INTO Project_detail VALUES
 ('PJ03', 'N08');
 
 SELECT * FROM Project_detail;
+```
