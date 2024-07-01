@@ -1,4 +1,4 @@
-# Tugas Praktikum 6 { Pertemuan ke 14 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
+# Tugas Praktikum UAS { Pertemuan ke 16 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
 
 |**Nama**|**NIM**|**Kelas**|**Matkul**|
 |----|---|-----|------|
