@@ -1,3 +1,12 @@
+# Tugas Praktikum 6 { Pertemuan ke 14 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
+
+|**Nama**|**NIM**|**Kelas**|**Matkul**|
+|----|---|-----|------|
+|Gladis Toti Anggraini |312310566|TI.23.A5|Basis Data|
+
+
+## INPUT DATA
+
 ```
 CREATE TABLE Perusahaan(
 id_p VARCHAR(10) PRIMARY KEY,
@@ -91,3 +100,51 @@ INSERT INTO Project_detail VALUES
 
 SELECT * FROM Project_detail;
 ```
+
+## SOAL
+Berdasarkan ERD dan Sampel Data diatas buatla Query SQL untuk:
+
+### 1. Menampilkan Nama Karyawan yang Berada di Departemen yang Dipimpin oleh Manajer dengan Nama 'Rika'
+
+```
+SELECT Karyawan.nik, Karyawan.nama
+FROM Karyawan
+JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
+WHERE Departemen.manajer_nik = (
+    SELECT nik FROM Karyawan WHERE nama = 'Rika'
+);
+```
+
+### 2. Menampilkan Nama Proyek yang dikerjakan oleh Karyawan dari Departemen 'RnD'
+
+```
+SELECT DISTINCT Project.nama
+FROM Project
+JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
+JOIN Karyawan ON Project_detail.nik = Karyawan.nik
+JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
+WHERE Departemen.nama = 'RnD';
+```
+
+### 3. Menampilkan Nama Karyawan yang Terlibat dalam Lebih dari Satu Proyek
+
+```
+SELECT Karyawan.nik, Karyawan.nama, COUNT(Project_detail.id_proj) AS jumlah_proyek
+FROM Karyawan
+JOIN Project_detail ON Karyawan.nik = Project_detail.nik
+GROUP BY Karyawan.nik, Karyawan.nama
+HAVING COUNT(Project_detail.id_proj) > 1;
+```
+
+### 4. Menampilkan Nama Proyek yang melibatkan Karyawan terbanyak.
+
+```
+SELECT Project.nama, COUNT(Project_detail.nik) AS jumlah_karyawan
+FROM Project
+JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
+GROUP BY Project.nama
+ORDER BY jumlah_karyawan DESC
+LIMIT 1;
+```
+
+### 5. Menampilkan Nama Proyek yang Diikuti oleh Karyawan dengan Gaji Pokok Kurang dari 3 Juta
