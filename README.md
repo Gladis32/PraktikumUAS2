@@ -154,6 +154,6 @@ SELECT DISTINCT Project.nama
 FROM Project
 JOIN Project_detail ON Project.id_proj = Project_detail.id_proj
 JOIN Karyawan ON Project_detail.nik = Karyawan.nik
-JOIN Gaji ON Karyawan.nik = Gaji.nik
+JOIN Gaji ON Karyawan.nik = Gaji.pokok
 WHERE Gaji.gaji_pokok < 3000000;
 ```
