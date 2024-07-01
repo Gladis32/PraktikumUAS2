@@ -1,11 +1,21 @@
-# Tugas Praktikum UAS { Pertemuan ke 16 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
+# Tugas Praktikum UAS { Semester 2 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
 
 |**Nama**|**NIM**|**Kelas**|**Matkul**|
 |----|---|-----|------|
 |Gladis Toti Anggraini |312310566|TI.23.A5|Basis Data|
 
+|**Tugas**|**Link**|
+|----|---|
+|Pertemuan 14 |https://github.com/Gladis32/TugasPraktikum6|
+|Pertemuan 15 |https://github.com/Gladis32/TugasPraktikum7|
+
+
+## ER-D
+![ER-D](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/9088bb33-c47c-46b9-8dd0-a49b496761d8)
 
 ## INPUT DATA
+
+![ER-D](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/3dd9bd86-0f69-4b91-952a-d2fed17b3393)
 
 ```
 CREATE TABLE Perusahaan(
@@ -27,7 +37,6 @@ id_p VARCHAR(10) NOT NULL,
 manajer_nik VARCHAR(10) DEFAULT NULL
 );
 
-SELECT * FROM Perusahaan;
 
 INSERT INTO Departemen VALUES
 ('D01', 'Produksi', 'P02', 'N01'),
@@ -35,6 +44,8 @@ INSERT INTO Departemen VALUES
 ('D03', 'RnD', 'P02', NULL),
 ('D04', 'Logistik', 'P02', NULL);
 SELECT * FROM Departemen;
+
+SELECT * FROM Perusahaan;
 
 CREATE TABLE Karyawan (
 nik VARCHAR(10) PRIMARY KEY,
@@ -82,7 +93,6 @@ FOREIGN KEY (id_proj) REFERENCES Project(id_proj),
 FOREIGN KEY (nik) REFERENCES Karyawan(nik)
 );
 
-
 INSERT INTO Project_detail VALUES
 ('PJ01', 'N01'),
 ('PJ01', 'N02'),
@@ -102,7 +112,7 @@ SELECT * FROM Project_detail;
 ```
 
 ## SOAL
-Berdasarkan ERD dan Sampel Data diatas buatla Query SQL untuk:
+**Berdasarkan ERD dan Sampel Data diatas buatla Query SQL untuk:**
 
 ### 1. Menampilkan Nama Karyawan yang Berada di Departemen yang Dipimpin oleh Manajer dengan Nama 'Rika'
 
@@ -115,6 +125,10 @@ WHERE Departemen.manajer_nik = (
 );
 ```
 
+![1](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/a2aee758-079f-4bd3-8e1d-2ae55979026f)
+
+
+
 ### 2. Menampilkan Nama Proyek yang dikerjakan oleh Karyawan dari Departemen 'RnD'
 
 ```
@@ -126,6 +140,10 @@ JOIN Departemen ON Karyawan.id_dept = Departemen.id_dept
 WHERE Departemen.nama = 'RnD';
 ```
 
+![2](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/8eb4d835-b6b9-4b17-a6b2-500643eb108e)
+
+
+
 ### 3. Menampilkan Nama Karyawan yang Terlibat dalam Lebih dari Satu Proyek
 
 ```
@@ -135,6 +153,8 @@ JOIN Project_detail ON Karyawan.nik = Project_detail.nik
 GROUP BY Karyawan.nik, Karyawan.nama
 HAVING COUNT(Project_detail.id_proj) > 1;
 ```
+
+![3](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/94de5740-9264-4a38-abd9-bd17e7964b09)
 
 ### 4. Menampilkan Nama Proyek yang melibatkan Karyawan terbanyak.
 
@@ -147,6 +167,9 @@ ORDER BY jumlah_karyawan DESC
 LIMIT 1;
 ```
 
+![4](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/629ff2df-68bd-4238-a114-376700556271)
+
+
 ### 5. Menampilkan Nama Proyek yang Diikuti oleh Karyawan dengan Gaji Pokok Kurang dari 3 Juta
 
 ```
@@ -157,3 +180,6 @@ JOIN Karyawan ON Project_detail.nik = Karyawan.nik
 JOIN Gaji ON Karyawan.nik = Gaji.pokok
 WHERE Gaji.gaji_pokok < 3000000;
 ```
+
+![5](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/67cdaf27-586b-4472-8022-fc2fd4b8755b)
+
