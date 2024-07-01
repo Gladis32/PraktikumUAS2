@@ -1,8 +1,12 @@
 # Tugas Praktikum UAS { Semester 2 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="130px" >
+>Paktikum UAS Basis Data | Universitas Pelita Bangsa
 
-|**Nama**|**NIM**|**Kelas**|**Matkul**|
-|----|---|-----|------|
-|Gladis Toti Anggraini |312310566|TI.23.A5|Basis Data|
+| Variable | Isi |
+| -------- | --- |
+| **Nama** | Gladis Toti Anggraini |
+| **NIM** | 312310566 |
+| **Kelas** | TI.23.A.5 |
+| **Mata Kuliah** | Bahasa Pemrograman |
 
 |**Tugas**|**Link**|
 |----|---|
@@ -112,7 +116,7 @@ SELECT * FROM Project_detail;
 ```
 
 ## SOAL
-**Berdasarkan ERD dan Sampel Data diatas buatla Query SQL untuk:**
+>**Berdasarkan ERD dan Sampel Data diatas buatla Query SQL untuk:**
 
 ### 1. Menampilkan Nama Karyawan yang Berada di Departemen yang Dipimpin oleh Manajer dengan Nama 'Rika'
 
@@ -182,4 +186,6 @@ WHERE Gaji.gaji_pokok < 3000000;
 ```
 
 ![5](https://github.com/Gladis32/PraktikumUAS2/assets/148181064/67cdaf27-586b-4472-8022-fc2fd4b8755b)
+
+### Sekian Tugas Praktikum UAS kali ini. 
 
